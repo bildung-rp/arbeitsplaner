@@ -8,9 +8,8 @@
 * Individuelles Lernen fördert
 
 **Voraussetzung:**
-* Moodle 3.5+
+* Moodle 3.5+                             
 * Grid Kursformat (https://moodle.org/plugins/format_grid)
-
 
 ## Installation:
 
@@ -24,7 +23,7 @@ Vor allem bei welcher Aktivität die Sichtbarkeit eingestellt werden kann.
 * course/report/modrating
 * course/report/modreview
 * local/aclmodules
-* theme/rlp_responsive
+* theme/boost_arbeitsplaner
 
 **Einbau in ein anderes Theme**
 In der config.php muss zunächst folgende Zeile enthalten sein.
@@ -35,13 +34,10 @@ Im classes Ordner (falls noch nicht vorhanden, muss dieser angelegt werden)
 
 Dort müssen die PHP Dateien core_course_renderer und core_renderer angelegt bzw. ergänzt werden.
 
-Bei boost ist die Struktur etwas anders, dort liegt unterhalb von classes/output die Datei core_renderer und im Unterordner core die Datei course_renderer.php
-
 ### Für den Arbeitsplaner sind folgende Methoden relevant
 
-* core_course_renderer.php
+* classes/output/core/course_renderer.php
  * public function course_section_cm_availability
- * public function print_multiple_section_page
-* core_renderer.php
- * public function course_content_header
+* classes/out/core_renderer.php
+ * public function header
  * public function course_content_header
