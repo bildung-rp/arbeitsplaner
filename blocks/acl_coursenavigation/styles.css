@@ -1,0 +1,20 @@
+.block_acl_coursenavigation ul.gridicons {
+    margin: 0;
+}
+
+.block_acl_coursenavigation ul.gridicons li {
+    display:inline;
+    width:30%;
+    float:left;
+    margin-right:5px;
+}
+
+.block_acl_coursenavigation ul.gridicons li .image_holder img {
+    width:100%;
+}
+
+.block_acl_coursenavigation .course-link {
+    padding: 5px;
+    border-bottom: 1px solid #999999;
+    margin-bottom: 5px;
+}

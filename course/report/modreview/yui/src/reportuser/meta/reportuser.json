@@ -1,0 +1,5 @@
+{
+    "moodle-coursereport_modreview-reportuser": {
+        "requires": ["node", "io"]
+    }
+}

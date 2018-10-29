@@ -1,0 +1,5 @@
+/* Mit dieser Datei wird die CSS-Anweisung des Arbeitsplaners überschrieben, die für den Border zuständig ist. (Jira: MDL-998) 
+ * von: Lars Joppich */
+.section .activity .mod-indent-outer>div {
+	    border-bottom: 0px !important;
+	}

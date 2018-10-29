@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/aclmodules/db" VERSION="20140630" COMMENT="XMLDB file for Moodle local/aclmodules"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="local_acl_mod_config" COMMENT="holds configuration for the modules of a course">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false" COMMENT="the id of the course"/>
+        <FIELD NAME="coursemoduleid" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false" COMMENT="the id of the course module"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="name of config"/>
+        <FIELD NAME="value" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="id of Group or User"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="11" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_acl_mod_level" COMMENT="level for participants">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="200" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_acl_mod_userlevel" COMMENT="relationship between user and level">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="levelid" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_acl_mod_userstate" COMMENT="additional states after users completion ist stored here">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false" COMMENT="id of the course"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false" COMMENT="id of the user"/>
+        <FIELD NAME="cmid" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="value" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="11" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="idx_courseid" UNIQUE="false" FIELDS="courseid"/>
+        <INDEX NAME="idx_crsid_usrid" UNIQUE="false" FIELDS="courseid, userid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="local_acl_mod_useravail" COMMENT="avaiablity for individual users">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="coursemoduleid" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false" COMMENT="id of course module"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="idx_crsid" UNIQUE="false" FIELDS="courseid"/>
+        <INDEX NAME="idx_userid" UNIQUE="false" FIELDS="userid"/>
+        <INDEX NAME="idx_crsid_usrid" UNIQUE="false" FIELDS="courseid, userid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="local_acl_mod_messages" COMMENT="assign messages to modules">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="coursemoduleid" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="messageid" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false" COMMENT="id of course module"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="idx_modid" UNIQUE="false" FIELDS="coursemoduleid"/>
+        <INDEX NAME="idx_messageid" UNIQUE="false" FIELDS="messageid"/>
+        <INDEX NAME="idx_modid_messageid" UNIQUE="false" FIELDS="coursemoduleid, messageid"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

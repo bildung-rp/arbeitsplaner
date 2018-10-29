@@ -1,0 +1,10 @@
+{
+    "name": "moodle-block_acl_coursenavigation-showsection",
+    "builds": {
+        "moodle-block_acl_coursenavigation-showsection": {
+            "jsfiles": [
+                "showsection.js"
+            ]
+        }
+    }
+}

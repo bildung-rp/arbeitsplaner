@@ -1,0 +1,10 @@
+{
+    "name": "moodle-local_aclmodules-levels",
+    "builds": {
+        "moodle-local_aclmodules-levels": {
+            "jsfiles": [
+                "levels.js"
+            ]
+        }
+    }
+}

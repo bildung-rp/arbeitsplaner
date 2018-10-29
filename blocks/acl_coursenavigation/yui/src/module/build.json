@@ -1,0 +1,10 @@
+{
+    "name": "moodle-block_acl_coursenavigation-module",
+    "builds": {
+        "moodle-block_acl_coursenavigation-module": {
+            "jsfiles": [
+                "module.js"
+            ]
+        }
+    }
+}

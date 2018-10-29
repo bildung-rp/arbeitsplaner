@@ -1,0 +1,10 @@
+{
+    "name": "moodle-local_aclmodules-sectioncollapse",
+    "builds": {
+        "moodle-local_aclmodules-sectioncollapse": {
+            "jsfiles": [
+                "sectioncollapse.js"
+            ]
+        }
+    }
+}

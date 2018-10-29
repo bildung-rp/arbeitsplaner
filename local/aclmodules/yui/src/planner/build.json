@@ -1,0 +1,10 @@
+{
+    "name": "moodle-local_aclmodules-planner",
+    "builds": {
+        "moodle-local_aclmodules-planner": {
+            "jsfiles": [
+                "planner.js"
+            ]
+        }
+    }
+}

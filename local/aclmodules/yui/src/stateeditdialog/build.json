@@ -1,0 +1,10 @@
+{
+    "name": "moodle-local_aclmodules-stateeditdialog",
+    "builds": {
+        "moodle-local_aclmodules-stateeditdialog": {
+            "jsfiles": [
+                "stateeditdialog.js"
+            ]
+        }
+    }
+}

@@ -1,0 +1,5 @@
+{
+    "moodle-local_aclmodules-levels": {
+        "requires": ["base", "node"]
+    }
+}

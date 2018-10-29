@@ -1,0 +1,5 @@
+{
+    "moodle-block_acl_coursenavigation-module": {
+        "requires": ["node"]
+    }
+}

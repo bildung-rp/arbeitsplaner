@@ -1,0 +1,5 @@
+{
+    "moodle-local_aclmodules-stateeditdialog": {
+        "requires": ["base", "node", "io", "dom", "panel", "dd"]
+    }
+}

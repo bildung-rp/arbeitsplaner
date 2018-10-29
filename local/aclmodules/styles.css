@@ -1,0 +1,399 @@
+table#acl-table {
+    width:auto;
+    margin-left:30px;
+}
+
+.acl-table td {
+    padding: 10px;
+    vertical-align: top;
+}
+
+.acl-table-sectionname {
+    font-size: 16px;
+    font-weight : bold;
+    border-bottom: 1px solid #666666;
+}
+
+.acl-table-editdiv {
+    background-image: url([[pix:local_aclmodules|edit]]);
+    background-repeat: no-repeat;
+    padding-left: 20px;
+}
+
+.acl-assigntable {
+    width:100%;
+}
+
+.acl-assigntable td.c1 {
+    width:150px;
+    text-align: center;
+}
+
+.acl-assigntable .select {
+    width: 100%;
+}
+
+.editleveldiv span.editinstructions {
+    margin-top : 0px;
+    margin-left : 5px;
+    position:relative;
+}
+.editlevellink {
+    margin: 3px;
+}
+
+#acl-levels td {
+    text-align: center;
+}
+
+#acl-levels td.c0 {
+    text-align: left;
+}
+
+#acl-levels td input {
+    margin: 0;
+}
+
+#acl-levels td .smallicon {
+    margin: 0 4px 0 0;
+}
+
+#acl-levels td span {
+    padding-left: 3px;
+}
+
+#acl-levels td span.assigned {
+    border-left: 5px solid green;
+}
+
+#acl-levels td span.unassigned {
+    border-left: 5px solid red;
+}
+
+#acl-table td.vertical div {
+
+    font-size: 12px;
+    margin-bottom: -16px;
+    margin-left: -1em;
+    margin-top: 130px;
+    position: relative;
+    width: 77px;
+    -moz-transform: rotate(-90deg);
+    -moz-transform-origin:10px 10px;
+    -ms-transform: rotate(-90deg);
+    -ms-transform-origin:10px 10px;
+    -o-transform: rotate(-90deg);
+    -o-transform-origin: 10px 10px;
+    -webkit-transform: rotate(-90deg);
+    -webkit-transform-origin: 10px 10px;
+    transform: rotate(-90deg);
+    transform-origin: 10px 10px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    width: 32px;
+    white-space: nowrap;
+    /*filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);*/
+}
+
+#acl-table td.vertical {
+    height: 150px;
+    line-height: 40px;
+    text-align: left;
+    width: 20px;
+    vertical-align: top;
+    table-layout: fixed;
+}
+
+#acl-table td {
+    vertical-align: middle;
+    text-align: center;
+    border: 0px solid #000000;
+}
+
+#acl-table tbody > tr > td:first-child {
+    text-align: left;
+}
+
+#acl-table .firstrow td {
+    height: 28px;
+}
+
+#acl-table input {
+    margin :0px;
+}
+
+.aclmodon {
+    border-left: 4px solid lightgreen;
+    padding: 2px;
+    margin-right: 30px;
+    float:left;
+}
+
+.aclmodoff {
+    border-left: 4px solid #ffcccc;
+    padding: 2px;
+}
+
+.statusdiv, .sstatusdiv {
+    width : 12px;
+    height: 12px;
+    display: block;
+    margin: 2px auto;
+    border: 1px solid #cccccc;
+}
+
+#acl-table .statusdiv {
+    cursor: pointer;
+}
+
+.state_30 {
+    background-color: #cccccc;
+}
+
+.state_70 {
+    background-color: #ffff00;
+}
+
+.state_160 {
+    background-color: #ff0000;
+}
+
+.state_140 {
+    background-color: #ff9933;
+}
+
+.state_260 {
+    background-color: #00ff00;
+}
+
+ul.planner-legend li {
+    list-style: none;
+    background-color: transparent;
+    padding-left : 10px;
+}
+
+li.state_30 {
+    border-left: 16px solid #cccccc;
+}
+
+li.state_70 {
+    border-left: 16px solid #ffff00;
+}
+
+li.state_160 {
+    border-left: 16px solid #ff0000;
+}
+
+li.state_140 {
+    border-left: 16px solid #ff9933;
+}
+
+li.state_260 {
+    border-left: 16px solid #00ff00;
+}
+
+
+
+#acl-table .acl-table-sectionname,
+#acl-view-table .acl-table-sectionname {
+    padding-left: 20px;
+    background: #ffffff url([[pix:core|t/expanded]])  no-repeat 3px center;
+    cursor: pointer;
+}
+
+#acl-table .acl-table-sectionname.collapsed,
+#acl-view-table .acl-table-sectionname.collapsed {
+    padding-left : 20px;
+    background: #ffffff url([[pix:core|t/collapsed]]) no-repeat 3px center;
+    cursor: pointer;
+}
+
+#acl-table .togglehide,
+#acl-view-table .togglehide {
+    width: 16px;
+    height: 16px;
+    display:block;
+    background: #ffffff url([[pix:core|t/collapsed]]) no-repeat;
+    cursor:pointer;
+}
+
+#acl-table .togglehide.collapsed,
+#acl-view-table .togglehide.collapsed
+{
+    background: #ffffff url([[pix:core|t/expanded]])  no-repeat;
+}
+
+#acl-table tr.collapsed,
+#acl-view-table tr.collapsed{
+    display:none;
+}
+
+#stateedit-content{
+    padding: 0 5px;
+}
+
+#stateedit-content .mform .fitem .felement {
+    margin-left: 90px;
+}
+
+#stateedit-content .mform .fitem div.fitemtitle {
+    width : 80px;
+}
+
+#stateedit-content #id_useractivitymessage {
+    width : 85%;
+}
+
+div.vert_slider {
+    padding-top: 30px;
+    width: 30px;
+    float:left;
+}
+
+div.horiz_slider {
+    height: 30px;
+}
+
+.section .activity .mod-indent-outer {
+    width: 100%;
+}
+
+
+.modrating {
+    float:right;
+}
+
+.modmessages-content {
+    padding: 0 15px;
+    max-width: 600px;
+}
+
+.modmessages-content h4 {
+    margin-top : 10px;
+}
+
+.modmessagesold-header {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.modmessage-sender {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.modmessage-mine,
+.modmessage-others  {
+    width:50%;
+}
+
+.modmessage-others {
+    margin-left: 50%;
+}
+
+.modmessage-mine .modmessage-message,
+.modmessage-others .modmessage-message {
+    padding: 5px;
+    background: #eeffee;
+    border: 1px solid #666666;
+    border-radius: 3px;
+    margin-bottom: 1px;
+}
+
+.modmessage-others .modmessage-message {
+    background: #ffffee;
+}
+
+.modmessages-unread {
+    border-left: 4px solid #990000;
+    padding-left: 4px;
+}
+
+.modmessages-read {
+    border-left: 4px solid #009999;
+    padding-left: 4px;
+}
+
+.modmessage-header-info {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.modmessages-img-collapsed,
+.modmessages-img-expanded {
+    background: url([[pix:core|t/collapsed]]) no-repeat left center;
+    padding: 10px 20px;
+    vertical-align: middle;
+}
+
+.modmessages-img-expanded {
+    background: url([[pix:core|t/expanded]]) no-repeat left center;
+}
+
+.section-completed,
+.section-started,
+.section-notstarted,
+.section-notracking,
+.section-empty,
+.section-read,
+.section-unread,
+.section-passed {
+    margin: 5px;
+    padding-left:20px;
+    font-weight:bold;
+}
+
+.section-passed {
+    background: url([[pix:local_aclmodules|passed]]) no-repeat;
+    color: green;
+}
+
+.section-completed {
+    background: url([[pix:local_aclmodules|completed]]) no-repeat;
+    color: red;
+}
+
+.section-started {
+    background: url([[pix:local_aclmodules|started]]) no-repeat;
+    color: orange;
+}
+
+.section-notstarted {
+    background: url([[pix:local_aclmodules|notstarted]]) no-repeat;
+    color: grey;
+}
+
+.section-notracking {
+    background: url([[pix:local_aclmodules|empty]]) no-repeat;
+}
+
+.section-empty {
+    background: url([[pix:local_aclmodules|empty]]) no-repeat;
+}
+
+
+
+.section-read {
+    background: url([[pix:local_aclmodules|read]]) no-repeat;
+}
+
+.section-unread {
+    background: url([[pix:local_aclmodules|unread]]) no-repeat;
+    color:red;
+}
+
+.ratinglegend {
+    color: #666666;
+    font-size: 10px;
+    margin: 0 2px 0 0;
+    padding: 0;
+    text-align: right;
+}
+
+select.postratingmenu {
+    margin-bottom: 0px;
+}
+
+.section .activity .mod-indent-outer > div {
+    border-bottom:1px dashed #cccccc;
+}

@@ -1,0 +1,10 @@
+{
+    "name": "moodle-local_aclmodules-modmessages",
+    "builds": {
+        "moodle-local_aclmodules-modmessages": {
+            "jsfiles": [
+                "modmessages.js"
+            ]
+        }
+    }
+}

@@ -1,0 +1,61 @@
+.modreview-groups {
+    float:right;
+}
+
+.modreview-report-user a,
+.modreview-report-user a:hover,
+.modreview-report-user a:focus{
+    text-decoration: none;
+}
+
+.modreview-report-user .collapsibleregioncaption {
+    background: #eeeeee;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.modreview-report-user  .collapsibleregioninner {
+    background : #ffffff;
+    padding:10px;
+}
+
+#modreview-participants {
+    width:100%;
+}
+
+#modreview-participants .generaltable td {
+    padding: 4px;
+}
+
+#modreview-participants .generaltable td.c0,
+#modreview-participants .generaltable td.c2{
+    width: 30%;
+}
+
+#modreview-participants .generaltable td.c1,
+#modreview-participants .generaltable td.c3,
+#modreview-participants .generaltable td.c4{
+    width: 20%;
+}
+
+#modreview-participants .generaltable .header {
+    font-weight: normal;
+    font-style: italic;
+}
+
+.modreview-img-collapsed,
+.modreview-img-expanded {
+    background: url([[pix:core|t/collapsed]]) no-repeat left center;
+    padding: 10px 20px;
+    vertical-align: middle;
+}
+
+.modreview-img-expanded {
+    background: url([[pix:core|t/expanded]]) no-repeat left center;
+}
+
+.modreview-header {
+    background: #efefef;
+    padding: 3px;
+    margin: 10px 0;
+}

@@ -1,0 +1,5 @@
+{
+    "moodle-local_aclmodules-planner": {
+        "requires": ["base", "node", "io", "dom", "slider"]
+    }
+}

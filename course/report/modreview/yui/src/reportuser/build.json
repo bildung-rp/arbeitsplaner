@@ -1,0 +1,10 @@
+{
+    "name": "moodle-coursereport_modreview-reportuser",
+    "builds": {
+        "moodle-coursereport_modreview-reportuser": {
+            "jsfiles": [
+                "reportuser.js"
+            ]
+        }
+    }
+}
