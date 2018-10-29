@@ -10,7 +10,3 @@
 
 #Ignore these hidden files from Mac OS X
 .DS_Store
-._.DS_Store
-
-#Ignore hidden files from Dolphin window manager
-.directory
