@@ -1,0 +1,12 @@
+#Ignore backup files from some Unix editors,
+*~
+*.swp
+*.bak
+
+#Ignore patches and any original files created by patch command
+*.diff
+*.orig
+*.rej
+
+#Ignore these hidden files from Mac OS X
+.DS_Store
