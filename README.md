@@ -38,6 +38,6 @@ Dort müssen die PHP Dateien core_course_renderer und core_renderer angelegt bzw
 
 * classes/output/core/course_renderer.php
   * public function course_section_cm_availability
-* classes/out/core_renderer.php
+* classes/output/core_renderer.php
   * public function header
   * public function course_content_header
