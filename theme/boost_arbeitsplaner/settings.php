@@ -23,7 +23,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
-    $settings = new theme_boost_arbeitsplaner_admin_settingspage_tabs('themesettingboostarbeitsplaner', get_string('configtitle', 'theme_boost_arbeitsplaner'));
+    $settings = new theme_boost_arbeitsplaner_admin_settingspage_tabs('themesettingboost_arbeitsplaner', get_string('configtitle', 'theme_boost_arbeitsplaner'));
     $page = new admin_settingpage('theme_boost_arbeitsplaner_general', get_string('generalsettings', 'theme_boost_arbeitsplaner'));
 
     // Preset.

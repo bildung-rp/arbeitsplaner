@@ -107,4 +107,24 @@ class course_renderer extends \core_course_renderer {
         return $output;
     }
 
+
+    /**
+     * Overridden to filter the modules, that should not be available
+     * controlled by local_authoringcapability Plugin.
+     *
+     * @param array $modules A set of modules as returned form @see
+     * get_module_metadata
+     * @param object $course The course that will be displayed
+     * @return string The composed HTML for the module
+     */
+    public function course_modchooser($modules, $course) {
+
+        if (!$this->page->requires->should_create_one_time_item_now('core_course_modchooser')) {
+            return '';
+        }
+
+        $modchooser = new \core_course\output\modchooser($course, $modules);
+        return $this->render($modchooser);
+    }	
+
 }
