@@ -14,13 +14,33 @@
     You should have received a copy of the GNU General Public License
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
-<form action="{{searchurl}}" id="{{id}}" method="get" class="form-inline">
-    <fieldset class="coursesearchbox invisiblefieldset">
-        <label for="{{inputid}}">{{#str}}searchcourses{{/str}}</label>
-        <input id="{{inputid}}" name="search" type="text" size="{{inputsize}}" value="{{value}}" class="form-control">
-        <button class="btn btn-secondary" type="submit">{{#str}}go{{/str}}</button>
-        {{#helpicon}}
-            {{>core/help_icon}}
-        {{/helpicon}}
-    </fieldset>
-</form>
+{{!
+    @template core_admin/setting_description
+
+    Admin setting description template.
+
+    Context variables required for this template:
+    * labelfor - id of the form element
+    * title - Setting title
+    * name - Setting name
+
+    Example context (json):
+    {
+        "title": "Setting title",
+        "name": "Name",
+        "description": "Description goes here"
+    }
+}}
+{{!
+    Setting description.
+}}
+<div class="form-item row">
+    <div class="form-label col-sm-3 text-sm-right">
+        <label>
+            {{{title}}}
+        </label>
+    </div>
+    <div class="form-setting col-sm-9">
+        <div class="form-description">{{{description}}}</div>
+    </div>
+</div>
