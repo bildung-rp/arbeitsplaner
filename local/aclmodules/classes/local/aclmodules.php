@@ -109,20 +109,6 @@ class aclmodules {
 
         return ($aclon == '1');
     }
-    
-    /* Added by Patrick Liersch (PL) - Static Funktion for setting Status aclmodul activated by Theme or not - 0 = off / 1 = on (default 0) */
-    public static function setActive($val) {
-      global $active;
-      
-      $active = $val;
-      return $active;
-    }
-    /* Added by Patrick Liersch (PL) - Static Funktion for getting Status aclmodul activated by Theme or not - 0 = off / 1 = on (default 0) */
-    public static function getActive() {
-      global $active;
-    
-      return $active;
-    }    
 
     /** get users coursemodule states for each user to check, whether a coursemodule is passed.
      *

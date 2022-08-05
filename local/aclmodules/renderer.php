@@ -373,12 +373,14 @@ class local_aclmodules_renderer extends plugin_renderer_base {
         }
 
         $form = html_writer::tag('div', $OUTPUT->user_picture($USER, array('size' => 18)) . " " . fullname($USER) . $recipient, array('class' => 'modmessage-sender'));
-        $form .= html_writer::tag('textarea', '', array('name' => "message", "cols" => "70"));
+        $subform = html_writer::tag('textarea', '', array('name' => "message", "cols" => "70", 'class' => 'form-group'));
+        $subform .= html_writer::tag('button', get_string('sendmessage', 'message'), array('id' => 'btnsendnewmessage_' . $mod->id, 'class' => 'btn btn-primary form-group'));
+        $form .= html_writer::tag('div', $subform, ['class' => 'form-inline']);
+
         $form .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'mod', 'value' => $mod->id));
         $form .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'useridfrom', 'value' => $USER->id));
-        $form .= html_writer::tag('button', get_string('sendmessage', 'message'), array('id' => 'btnsendnewmessage_' . $mod->id));
 
-        $output .= html_writer::tag('form', $form, array('id' => 'newmessage-form-' . $mod->id));
+        $output .= html_writer::tag('form', $form, array('id' => 'newmessage-form-' . $mod->id, 'class' => 'mform'));
 
         return $output;
     }
@@ -462,13 +464,16 @@ class local_aclmodules_renderer extends plugin_renderer_base {
             }
 
             $form = html_writer::tag('div', $OUTPUT->user_picture($USER, array('size' => 18)) . " " . fullname($USER), array('class' => 'modmessage-sender'));
-            $form .= html_writer::tag('textarea', '', array("name" => "message", "cols" => "50", 'class' => 'modmessage-message'));
+
+            $subform = html_writer::tag('textarea', '', array("name" => "message", "cols" => "50", 'class' => 'modmessage-message form-group'));
+            $subform .= html_writer::tag('button', get_string('sendmessage', 'message'), array('id' => 'btnsendmessage_' . $mod->id, 'class' => 'btn btn-primary form-group'));
+            $form .= html_writer::tag('div', $subform, ['class' => 'form-inline']);
+
             $form .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'mod', 'value' => $mod->id));
             $form .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'useridfrom', 'value' => $USER->id));
             $form .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'useridto', 'value' => $userid));
-            $form .= html_writer::tag('button', get_string('sendmessage', 'message'), array('id' => 'btnsendmessage_' . $mod->id));
 
-            $output .= html_writer::tag('form', $form, array('id' => 'message-form-' . $mod->id));
+            $output .= html_writer::tag('form', $form, array('id' => 'message-form-' . $mod->id, 'class' => 'mform'));
         }
 
         return $output;

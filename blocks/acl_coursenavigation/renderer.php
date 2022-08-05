@@ -77,98 +77,100 @@ class block_acl_coursenavigation_renderer extends plugin_renderer_base {
 
         $modinfo = get_fast_modinfo($course);
 
-        $summarystatus = $gridformat->get_summary_visibility($course->id);
-        $showtopic0attop = ($summarystatus->showsummary == 1);
+		if(method_exists($gridformat,'get_summary_visibility')) {
+			$summarystatus = $gridformat->get_summary_visibility($course->id);
+			$showtopic0attop = ($summarystatus->showsummary == 1);
 
-        $o = '';
+			$o = '';
 
-        // Get the section images for the course.
-        $sectionimages = $gridformat->get_images($course->id);
+			// Get the section images for the course.
+			$sectionimages = $gridformat->get_images($course->id);
 
-        // CONTRIB-4099:...
-        $gridimagepath = $gridformat->get_image_path();
+			// CONTRIB-4099:...
+			$gridimagepath = $gridformat->get_image_path();
 
-        $visiblesections = \local_aclmodules\local\aclmodules::instance()->get_sections_available_for_user($course->id, false);
+			$visiblesections = \local_aclmodules\local\aclmodules::instance()->get_sections_available_for_user($course->id, false);
 
-        for ($section = ($showtopic0attop) ? 1 : 0; $section <= $course->numsections; $section++) {
+			for ($section = ($showtopic0attop) ? 1 : 0; $section <= $course->numsections; $section++) {
 
-            $thissection = $modinfo->get_section_info($section);
-            $showsection = $thissection->uservisible ||
-                    ($thissection->visible && !$thissection->available &&
-                    !empty($thissection->availableinfo));
+				$thissection = $modinfo->get_section_info($section);
+				$showsection = $thissection->uservisible ||
+						($thissection->visible && !$thissection->available &&
+						!empty($thissection->availableinfo));
 
-            $showsection = ($showsection and (isset($visiblesections[$section])));
+				$showsection = ($showsection and (isset($visiblesections[$section])));
 
-            if ($showsection) {
+				if ($showsection) {
 
-                $sectionname = $gridformat->get_section_name($thissection);
+					$sectionname = $gridformat->get_section_name($thissection);
 
-                // Ensure the record exists.
-                if (($sectionimages === false) || (!array_key_exists($thissection->id, $sectionimages))) {
-                    // ...get_image has 'repair' functionality for when there are issues with the data.
-                    $sectionimage = $gridformat->get_image($course->id, $thissection->id);
-                } else {
-                    $sectionimage = $sectionimages[$thissection->id];
-                }
+					// Ensure the record exists.
+					if (($sectionimages === false) || (!array_key_exists($thissection->id, $sectionimages))) {
+						// ...get_image has 'repair' functionality for when there are issues with the data.
+						$sectionimage = $gridformat->get_image($course->id, $thissection->id);
+					} else {
+						$sectionimage = $sectionimages[$thissection->id];
+					}
 
-                // If the image is set then check that displayedimageindex is greater than 0 otherwise create the displayed image.
-                // This is a catch-all for existing courses.
-                if (isset($sectionimage->image) && ($sectionimage->displayedimageindex < 1)) {
-                    // Set up the displayed image:...
-                    $sectionimage->newimage = $sectionimage->image;
-                    $sectionimage = $gridformat->setup_displayed_image($sectionimage, $context->id, $gridformat->get_settings());
-                }
+					// If the image is set then check that displayedimageindex is greater than 0 otherwise create the displayed image.
+					// This is a catch-all for existing courses.
+					if (isset($sectionimage->image) && ($sectionimage->displayedimageindex < 1)) {
+						// Set up the displayed image:...
+						$sectionimage->newimage = $sectionimage->image;
+						$sectionimage = $gridformat->setup_displayed_image($sectionimage, $context->id, $gridformat->get_settings(), null);
+					}
 
-                $showimg = false;
-                if (is_object($sectionimage) && ($sectionimage->displayedimageindex > 0)) {
-                    $imgurl = moodle_url::make_pluginfile_url(
-                                    $context->id, 'course', 'section', $thissection->id,
-                            $gridimagepath, $sectionimage->displayedimageindex . '_' . $sectionimage->image
-                    );
-                    $showimg = true;
-                } else if ($section == 0) {
-                    $imgurl = $OUTPUT->image_url('info', 'format_grid');
-                    $showimg = true;
-                }
+					$showimg = false;
+					if (is_object($sectionimage) && ($sectionimage->displayedimageindex > 0)) {
+						$imgurl = moodle_url::make_pluginfile_url(
+										$context->id, 'course', 'section', $thissection->id,
+								$gridimagepath, $sectionimage->displayedimageindex . '_' . $sectionimage->image
+						);
+						$showimg = true;
+					} else if ($section == 0) {
+						$imgurl = $OUTPUT->image_url('info', 'format_grid');
+						$showimg = true;
+					}
 
-                $title = '';
-                if ($showimg) {
-                    $img = html_writer::empty_tag('img', array(
-                                'src' => $imgurl,
-                                'alt' => $sectionname,
-                                'role' => 'img',
-                                'aria-label' => $sectionname));
-                    $title = html_writer::tag('div', $img, array('class' => 'image_holder'));
-                }
+					$title = '';
+					if ($showimg) {
+						$img = html_writer::empty_tag('img', array(
+									'src' => $imgurl,
+									'alt' => $sectionname,
+									'role' => 'img',
+									'aria-label' => $sectionname));
+						$title = html_writer::tag('div', $img, array('class' => 'image_holder'));
+					}
 
-                $title .= html_writer::tag('p', $sectionname, array('class' => 'icon_content'));
+					$title .= html_writer::tag('p', $sectionname, array('class' => 'icon_content'));
 
-                $url = course_get_url($course, $thissection->section);
-                if ($url) {
-                    $title = html_writer::link($url, $title, array(
-                                'id' => 'gridsection-' . $thissection->section,
-                                'role' => 'link',
-                                'class' => 'gridicon_link',
-                                'aria-label' => $sectionname));
-                }
+					$url = course_get_url($course, $thissection->section);
+					if ($url) {
+						$title = html_writer::link($url, $title, array(
+									'id' => 'gridsection-' . $thissection->section,
+									'role' => 'link',
+									'class' => 'gridicon_link',
+									'aria-label' => $sectionname));
+					}
 
-                $liattributes = array(
-                    'role' => 'region',
-                    'aria-label' => $sectionname
-                );
-                $o .= html_writer::tag('li', $title, $liattributes);
-            }
+					$liattributes = array(
+						'role' => 'region',
+						'aria-label' => $sectionname
+					);
+					$o .= html_writer::tag('li', $title, $liattributes);
+				}
 
-            // ... load additional javascript only when not on course view page.
+				// ... load additional javascript only when not on course view page.
 
-            if (($PAGE->pagetype != 'course-view-grid') and ($course->coursedisplay == 0)) {
-                $args = array();
-                $args['courseid'] = $COURSE->id;
-                $PAGE->requires->yui_module('moodle-block_acl_coursenavigation-module',
-                        'M.block_acl_coursenavigation.init', array($args));
-            }
-        }
-        return html_writer::tag('ul', $o, array('class' => 'gridicons'));
+				if (($PAGE->pagetype != 'course-view-grid') and ($course->coursedisplay == 0)) {
+					$args = array();
+					$args['courseid'] = $COURSE->id;
+					$PAGE->requires->yui_module('moodle-block_acl_coursenavigation-module',
+							'M.block_acl_coursenavigation.init', array($args));
+				}
+			}		
+			return html_writer::tag('ul', $o, array('class' => 'gridicons'));
+		}
     }
 
     /** render the content of the course navigation block

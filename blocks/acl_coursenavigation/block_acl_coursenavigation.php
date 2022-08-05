@@ -46,7 +46,7 @@ class block_acl_coursenavigation extends block_base {
         $this->content->text = '';
         $this->content->footer = '';
 
-        $format = course_get_format($COURSE);
+        $format = \course_get_format($COURSE);
         $course = $format->get_course();
 
         if ($format->uses_sections()) {

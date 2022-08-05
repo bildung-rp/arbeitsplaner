@@ -1,0 +1,34 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    Page footer.
+}}
+<footer id="page-footer" class="py-3 bg-dark text-light">
+    <div class="container">
+        <div id="course-footer">{{{ output.course_footer }}}</div>
+        
+       <div class="copyright">Lernplattform@RLP<br>
+        <a href="https://lms.bildung-rp.de/datenschutz">Datenschutzerklärung, Nutzungsvereinbarung</a> und <a href="https://bildung-rp.de/gehezu/impressum.html">Impressum</a>
+        <p>Aktuelle Informationen unter: <a href="http://lernenonline.bildung-rp.de" alt="Lernen-Online" title="Lernen-Online">http://lernenonline.bildung-rp.de</a></p>
+        </div>       
+        
+        {{{ output.login_info }}}
+        
+        {{{ output.standard_end_of_body_html }}}
+
+    </div>
+</footer>

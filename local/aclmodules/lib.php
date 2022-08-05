@@ -87,10 +87,7 @@ function local_aclmodules_extend_settings_navigation(settings_navigation $naviga
                     $courssettingsurl = new moodle_url('/local/aclmodules/action.php', $actionparams);
                     $node->add(get_string('setacloff', 'local_aclmodules'), $courssettingsurl, navigation_node::TYPE_CUSTOM, null, 'local_aclmodules_action');
                 } else {
-                    /* Den CSS Border nur anzeigen, wenn Arbeitsplaner eingeschaltet ist */
-                    echo "<style>";
-                      include("styleextension.css");
-                    echo "</style>";
+
                     $actionparams['value'] = 1;
                     $courssettingsurl = new moodle_url('/local/aclmodules/action.php', $actionparams);
                     $node->add(get_string('setaclon', 'local_aclmodules'), $courssettingsurl, navigation_node::TYPE_CUSTOM, null, 'local_aclmodules_action');

@@ -128,12 +128,12 @@ if (!empty($msg)) {
 // ... output form.
 $actionurl = new moodle_url('/local/aclmodules/planner/edit.php');
 
-echo html_writer::start_tag('form', array('action' => $actionurl, 'method' => 'post', 'id' => 'plannerform'));
+echo html_writer::start_tag('form', array('action' => $actionurl, 'method' => 'post', 'id' => 'plannerform', 'class' => 'mform'));
 
-$buttons = html_writer::empty_tag('input', array('type' => 'submit', 'name' => 'save', 'value' => get_string('savechanges')));
-$buttons .= html_writer::empty_tag('input', array('type' => 'submit', 'name' => 'cancel', 'value' => get_string('cancel')));
+$buttons = html_writer::empty_tag('input', array('type' => 'submit', 'name' => 'save', 'value' => get_string('savechanges'), 'class' => 'btn btn-primary form-group'));
+$buttons .= html_writer::empty_tag('input', array('type' => 'submit', 'name' => 'cancel', 'value' => get_string('cancel'), 'class' => 'btn  form-group'));
 
-echo html_writer::tag('p', $buttons);
+echo html_writer::tag('div', $buttons, ['class' => 'form-inline']);
 
 echo html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'sesskey', 'value' => $USER->sesskey));
 echo html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'courseid', 'value' => $course->id));
@@ -487,7 +487,7 @@ echo html_writer::tag('div', '', array('class' => 'vert_slider'));
 echo html_writer::tag('div', html_writer::tag('div', '', array('class' => 'horiz_slider'), array('class' => 'yui3-skin-round-dark')));
 
 echo html_writer::table($table);
-echo html_writer::tag('p', $buttons);
+echo html_writer::tag('div', $buttons, ['class' => 'form-inline']);
 echo html_writer::end_tag('form');
 
 echo $renderer->render_legend();

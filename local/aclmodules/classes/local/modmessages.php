@@ -351,7 +351,7 @@ class modmessages {
     public function message_post_message($mod, $userfrom, $userto, $message) {
         global $SITE;
 
-        $eventdata = new \stdClass();
+        $eventdata = new \core\message\message();
         $eventdata->component = 'moodle';
         $eventdata->name = 'instantmessage';
         $eventdata->userfrom = $userfrom;
@@ -389,6 +389,7 @@ class modmessages {
         $eventdata->contexturlname = $mod->name;
 
         $eventdata->notification = 0;
+        $eventdata->courseid = $mod->course;
 
         return message_send($eventdata);
     }
