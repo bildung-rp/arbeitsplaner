@@ -8,7 +8,7 @@
 * Individuelles Lernen fördert
 
 **Voraussetzung:**
-* Moodle 3.6+                             
+* Moodle 3.9+                             
 * Grid Kursformat (https://moodle.org/plugins/format_grid)
 
 ## Installation:
